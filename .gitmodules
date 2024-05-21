@@ -1,0 +1,3 @@
+[submodule "src/com.wiwaltill.qlab-qlugin.sdPlugin/src/my.domain.plugin-name/libs"]
+	path = src/com.wiwaltill.qlab-qlugin.sdPlugin/src/my.domain.plugin-name/libs
+	url = https://github.com/elgatosf/streamdeck-javascript-sdk
