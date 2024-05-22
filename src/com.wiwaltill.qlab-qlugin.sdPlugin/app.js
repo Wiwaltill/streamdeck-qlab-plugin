@@ -11,7 +11,7 @@ $SD.onConnected(({ actionInfo, appInfo, connection, messageType, port, uuid }) =
 });
 
 myAction.onKeyUp(({ action, context, device, event, payload }) => {
-	console.log('Your key code goes here!');
+	console.log('ACTION: Your key code goes here!');
 });
 
 myAction.onDialRotate(({ action, context, device, event, payload }) => {
@@ -23,25 +23,16 @@ const goAction = new Action('com.wiwaltill.qlab-qlugin.go');
 /**
  * GO ACTION
  */
-$SD.onConnected(({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
-	console.log('Stream Deck connected!');
-});
-
-myAction.onKeyUp(({ action, context, device, event, payload }) => {
-	console.log('Your key code goes here!');
+goAction.onKeyUp(({ action, context, device, event, payload }) => {
+	console.log('GO: Your key code goes here!');
+    alert("Hello! I am an alert box!!");
 	const script = `
-        tell application id "com.figure53.QLab.5"
-            tell front workspace
-                go
-            end tell
+        tell application id "com.figure53.QLab.5" to tell front workspace
+            start cue "4.1"
+        end tell
         `;
     runAppleScript(script);
 });
-
-myAction.onDialRotate(({ action, context, device, event, payload }) => {
-	console.log('Your dial code goes here!');
-});
-
 
 // Funktion, um AppleScript-Befehle auszuführen
 function runAppleScript(script) {
